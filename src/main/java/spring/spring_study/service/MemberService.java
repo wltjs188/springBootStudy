@@ -1,15 +1,18 @@
 package spring.spring_study.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import spring.spring_study.domain.Member;
 import spring.spring_study.repository.MemberRepository;
-import spring.spring_study.repository.MemoryMemberRepository;
-
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
     private MemberRepository memberRepository;
+
+    @Autowired
     public MemberService(MemberRepository memberRepository){ //dependency injection (의존성주입)
         this.memberRepository = memberRepository;
     }
