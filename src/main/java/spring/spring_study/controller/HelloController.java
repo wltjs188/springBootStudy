@@ -32,7 +32,7 @@ public class HelloController {
         return hello; //객체넘김(json)
     }
 
-    static class Hello{
+    static class Hello{ //java bean
         private String name;
 
         public String getName() {
