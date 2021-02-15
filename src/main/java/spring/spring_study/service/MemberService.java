@@ -7,12 +7,12 @@ import spring.spring_study.repository.MemberRepository;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class MemberService {
 
     private MemberRepository memberRepository;
 
-    @Autowired
+//    @Autowired
     public MemberService(MemberRepository memberRepository){ //dependency injection (의존성주입)
         this.memberRepository = memberRepository;
     }
