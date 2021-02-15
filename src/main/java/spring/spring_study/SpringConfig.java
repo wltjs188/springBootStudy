@@ -3,10 +3,8 @@ package spring.spring_study;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import spring.spring_study.domain.Member;
 import spring.spring_study.repository.JdbcMemberRepository;
 import spring.spring_study.repository.MemberRepository;
-import spring.spring_study.repository.MemoryMemberRepository;
 import spring.spring_study.service.MemberService;
 
 import javax.sql.DataSource;
