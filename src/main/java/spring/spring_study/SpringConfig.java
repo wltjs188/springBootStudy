@@ -1,6 +1,7 @@
 package spring.spring_study;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import spring.spring_study.repository.JdbcMemberRepository;
@@ -15,30 +16,38 @@ import javax.sql.DataSource;
 @Configuration //자바 코드로 직접 스프링 빈 등록
 public class SpringConfig {
 
-/*    private DataSource dataSource;
+/*    private DataSource dataSource; //jdbc,jdbcTemplate
 
     @Autowired //스프링이 자체적으로 DataSource 넣어줌
     public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }*/
 
-    @Autowired
+/*    @Autowired //jpa
     private EntityManager em;
 
     public SpringConfig(EntityManager em) {
         this.em = em;
+    }*/
+
+    private final MemberRepository memberRepository;
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Bean
     public MemberService memberService(){
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
-    @Bean
-    public MemberRepository memberRepository(){
+
+/*    @Bean
+    public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository();
-//        return new JdbcMemberRepository(dataSource);
-//        return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
-    }
+//        return new JdbcMemberRepository(dataSource);   jdbc
+//        return new JdbcTemplateMemberRepository(dataSource);   jdbcTemplate
+//        return new JpaMemberRepository(em);   jpa
+
+    }*/
 
 }
