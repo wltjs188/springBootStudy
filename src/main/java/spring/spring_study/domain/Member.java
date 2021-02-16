@@ -1,7 +1,14 @@
 package spring.spring_study.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Member {
+
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; //임의의값-시스템이 저장하는 id
+
     private String name;
 
     public Long getId() {

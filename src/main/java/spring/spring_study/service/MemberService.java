@@ -2,12 +2,14 @@ package spring.spring_study.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import spring.spring_study.domain.Member;
 import spring.spring_study.repository.MemberRepository;
 import java.util.List;
 import java.util.Optional;
 
 //@Service
+@Transactional
 public class MemberService {
 
     private MemberRepository memberRepository;
