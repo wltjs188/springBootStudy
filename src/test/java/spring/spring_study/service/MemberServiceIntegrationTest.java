@@ -1,14 +1,11 @@
 package spring.spring_study.service;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import spring.spring_study.domain.Member;
 import spring.spring_study.repository.MemberRepository;
-import spring.spring_study.repository.MemoryMemberRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -45,9 +42,7 @@ class MemberServiceIntegrationTest {
         memberService.join(member1);
 
         IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
-
     }
-
 
     @Test
     void findMembers() {
